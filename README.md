@@ -128,7 +128,6 @@ add(testCycle1.make, testCycle5.model[1]);
 add(testCycle2.make, testCycle4.model[1]);
  
 ## [] Part 5: Conclusion
-With your code thoroughly tested, do not forget to submit the link to your CodeSandbox, according to the submission instructions at the beginning of this document.
 
 This code serves no immediate purpose, but should have demonstrated how simple it is to write arbitrary TypeScript code (almost as simple as writing arbitrary JavaScript code!).
 

@@ -115,3 +115,55 @@ const myBuick = new Car("Buick", "Regal");
 myBuick.wheels = myBuick.wheels - 1;
 console.log(myBuick.wheels);
 console.log(myBuick.model); // Note the corrected property name "model"
+
+/**
+ * Part 3
+ */
+class NCycle<T> extends Vehicle {
+  make: T | T[];
+  model: T | T[];
+
+  constructor(make: T | T[], model: T | T[], wheels: number | string) {
+    super("", "", wheels);
+    this.make = make;
+    this.model = model;
+  }
+
+  print(parameter?: number): void {
+    if (!Array.isArray(this.make) && !Array.isArray(this.model)) {
+      console.log(`This is a ${this.make} ${this.model} NCycle.`);
+    } else if (Array.isArray(this.make) && Array.isArray(this.model) && parameter !== undefined) {
+      if (this.make[parameter] && this.model[parameter]) {
+        console.log(`This NCycle has a ${this.make[parameter]} ${this.model[parameter]} at ${parameter}.`);
+      } else {
+        console.log("This NCycle was not created properly.");
+      }
+    } else {
+      console.log("This NCycle was not created properly.");
+    }
+  }
+
+  printAll(): void {
+    if (Array.isArray(this.make) && Array.isArray(this.model)) {
+      for (let i = 0; i < Math.min(this.make.length, this.model.length); i++) {
+        console.log(`This is a ${this.make[i]} ${this.model[i]} NCycle.`);
+      }
+    } else {
+      console.log("This NCycle was not created properly.");
+    }
+  }
+}
+
+// Example usage:
+const myNCycleSingle = new NCycle("GenericMake", "GenericModel", 2);
+myNCycleSingle.print(); // This is a GenericMake GenericModel NCycle.
+myNCycleSingle.printAll(); // This NCycle was not created properly.
+
+const myNCycleArray = new NCycle(["Make1", "Make2"], ["Model1", "Model2"], 2);
+myNCycleArray.print(1); // This NCycle has a Make2 Model2 at 1.
+myNCycleArray.printAll(); // This is a Make1 Model1 NCycle.
+                          // This is a Make2 Model2 NCycle.
+
+
+
+                          
