@@ -165,5 +165,3 @@ myNCycleArray.printAll(); // This is a Make1 Model1 NCycle.
                           // This is a Make2 Model2 NCycle.
 
 
-
-                          
